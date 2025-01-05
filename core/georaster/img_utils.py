@@ -21,14 +21,10 @@
 
 
 import struct
-import imghdr
 
 
 def isValidStream(data):
 	if data is None:
-		return False
-	format = imghdr.what(None, data)
-	if format is None:
 		return False
 	return True
 

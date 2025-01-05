@@ -26,7 +26,6 @@ import threading
 import queue
 import time
 import urllib.request
-import imghdr
 import sys, time, os
 
 #core imports
@@ -589,12 +588,6 @@ class MapService():
 		except Exception as e:
 			log.error("Can't download tile x{} y{}. Error {}".format(col, row, e))
 			data = None
-
-		#Make sure the stream is correct
-		if data is not None:
-			format = imghdr.what(None, data)
-			if format is None:
-				data = None
 
 		if data is None:
 			log.debug("Invalid tile data for request {}".format(url))
